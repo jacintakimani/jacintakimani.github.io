@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#14213d; --navy-2:#1d2d50; --gold:#c9a24b; --gold-soft:#f3ead3;
-    --ink:#1b1f2a; --muted:#5b6475; --line:#e4e1d8; --paper:#faf8f3; --white:#ffffff;
+    --navy:#14213d; --navy-2:#1d2d50; --gold:#2bb3a8; --gold-soft:#dcf1ee; --teal-ink:#0e7a71;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#dde6e7; --paper:#f6f9f9; --white:#ffffff;
     --radius:14px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -20,13 +20,14 @@
   a{color:inherit}
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
   h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.2;color:var(--navy)}
-  h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:8px}
-  .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+  h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:14px}
+  section:not(.contact) h2::after{content:"";display:block;width:48px;height:3px;border-radius:3px;background:var(--gold);margin-top:12px}
+  .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-ink);font-weight:600;margin-bottom:10px}
   .lead{color:var(--muted);max-width:640px;margin-bottom:32px}
   section{padding:80px 0;border-top:1px solid var(--line)}
 
   /* nav */
-  nav{position:sticky;top:0;z-index:10;background:rgba(250,248,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav{position:sticky;top:0;z-index:10;background:rgba(246,249,249,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
   .mono{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:1.25rem;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;text-decoration:none}
   nav ul{display:flex;gap:26px;list-style:none}
@@ -35,8 +36,9 @@
 
   /* hero */
   .hero{background:var(--navy);color:var(--white);padding:96px 0 88px;border:0;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(201,162,75,.25)}
-  .hero::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(201,162,75,.18)}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(43,179,168,.28)}
+  .hero::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(43,179,168,.2)}
+  .hero .eyebrow,.contact .eyebrow{color:var(--gold)}
   .hero h1{color:var(--white);font-size:clamp(2.3rem,6vw,3.8rem);margin-bottom:10px}
   .hero .role{font-family:Fraunces,serif;font-style:italic;color:var(--gold);font-size:clamp(1.15rem,2.4vw,1.45rem);margin-bottom:22px}
   .hero p.intro{max-width:620px;color:#d6dbe6;font-size:.98rem;margin-bottom:14px}
@@ -57,29 +59,39 @@
   /* about */
   .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
   .about-grid p{margin-bottom:14px;color:#333a48}
-  .edu{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-  .edu h3{font-size:1.05rem;margin-bottom:16px}
-  .edu li{list-style:none;padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+  .edu{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 30px rgba(20,33,61,.06)}
+  .edu-head{background:var(--navy);color:var(--white);padding:18px 24px;display:flex;align-items:center;gap:10px}
+  .edu-head h3{color:var(--white);font-size:1.05rem;margin:0}
+  .edu-head svg{color:var(--gold)}
+  .edu ul{padding:8px 24px 18px}
+  .edu li{list-style:none;display:grid;grid-template-columns:38px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
   .edu li:last-child{border:0}
-  .edu li strong{display:block;color:var(--navy)}
-  .edu li span{color:var(--muted);font-size:.85rem}
+  .edu .ic{width:38px;height:38px;border-radius:10px;background:var(--gold-soft);color:var(--teal-ink);display:grid;place-items:center}
+  .edu li strong{display:block;color:var(--navy);font-size:.95rem;line-height:1.35}
+  .edu li .sub{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .chip{font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--navy);color:var(--gold)}
+  .chip.soft{background:var(--gold-soft);color:#0b5f58}
+  .chip.prog{background:transparent;border:1px dashed var(--teal-ink);color:var(--teal-ink)}
 
   /* skills */
   .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
   .skill{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
   .skill h3{font-size:1.02rem;margin-bottom:14px}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
-  .tag{font-size:.8rem;padding:5px 11px;border-radius:999px;background:var(--gold-soft);color:#6b5520;font-weight:500}
+  .tag{font-size:.8rem;padding:5px 11px;border-radius:999px;background:var(--gold-soft);color:#0b5f58;font-weight:500}
   .tag.learn{background:#e8ecf5;color:var(--navy-2)}
 
   /* projects */
   .projects{display:grid;gap:22px}
   .project{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:grid;grid-template-columns:200px 1fr;gap:30px}
-  .project .meta{border-right:1px solid var(--line);padding-right:24px}
-  .project .num{font-family:Fraunces,serif;font-size:2.2rem;color:var(--gold);line-height:1}
+  .project .meta{background:var(--gold-soft);border-radius:10px;padding:18px}
+  .project:hover{border-color:var(--gold);box-shadow:0 10px 30px rgba(20,33,61,.07)}
+  .project{transition:border-color .2s,box-shadow .2s}
+  .project .num{font-family:Fraunces,serif;font-size:2.2rem;color:var(--teal-ink);line-height:1}
   .project .type{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:10px}
   .project .where{font-size:.88rem;color:var(--navy);font-weight:600;margin-top:4px}
-  .project h3{font-size:1.3rem;margin-bottom:10px}
+  .project h3{font-size:1.35rem;margin-bottom:10px;line-height:1.25}
   .project p{color:#3a4152;margin-bottom:14px}
   .project ul{margin:0 0 16px 18px;color:#3a4152}
   .project li{margin-bottom:6px}
@@ -90,7 +102,7 @@
   .timeline{position:relative;padding-left:28px}
   .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
   .item{position:relative;padding-bottom:34px}
-  .item::before{content:"";position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+  .item::before{content:"";position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--teal-ink)}
   .item .when{font-size:.82rem;color:var(--muted);font-weight:500}
   .item h3{font-size:1.12rem;margin:2px 0}
   .item .org{color:var(--navy-2);font-weight:600;font-size:.93rem;margin-bottom:8px}
@@ -108,7 +120,7 @@
     nav ul{display:none}
     .about-grid{grid-template-columns:1fr}
     .project{grid-template-columns:1fr;gap:14px}
-    .project .meta{border-right:0;border-bottom:1px solid var(--line);padding:0 0 14px}
+    .project .meta{padding:14px 16px}
     section{padding:60px 0}
     .stats{gap:24px}
     .hero-grid{grid-template-columns:1fr;gap:28px}
@@ -137,7 +149,7 @@
    <div>
     <p class="eyebrow">Adelaide, South Australia</p>
     <h1>Jacinta Kimani</h1>
-    <p class="role">Data &amp; Business Analyst</p>
+    <p class="role">Data Analytics · Business Intelligence · Business Analysis</p>
     <p class="intro">Hi, I'm Jacinta, an early-career data and business analyst who enjoys helping teams make better decisions. I analyse data to find out what's really going on, build clear reports and dashboards in Power BI and Excel, and work with people to understand their processes and needs. Where it helps, I automate the repetitive steps too.</p>
     <p class="intro">I bring a Master of Data Science, a background in mathematics and hands-on industry experience, along with a practical, people-first approach to every project.</p>
     <div class="btns">
@@ -145,9 +157,9 @@
       <a href="#contact" class="btn btn-ghost">Get in touch</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>Master's</b><span>Data Science, UniSA</span></div>
+      <div class="stat"><b>Master</b><span>of Data Science, UniSA</span></div>
       <div class="stat"><b>40%</b><span>Fewer data helpdesk tickets (Concordia)</span></div>
-      <div class="stat"><b>4+ yrs</b><span>Continuous paid work in Australia</span></div>
+      <div class="stat"><b>4+ years</b><span>Work experience in Australia</span></div>
     </div>
    </div>
     <!-- PHOTO SLOT: upload your photo to GitHub as photo.jpg and it appears here automatically.
@@ -169,12 +181,15 @@
       <p>Alongside my analytics work, I've spent four years as a support worker in the disability sector. That work has made me a careful listener and taught me to design for the people who will actually use a system.</p>
     </div>
     <div class="edu">
-      <h3>Education &amp; credentials</h3>
+      <div class="edu-head"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg><h3>Education &amp; credentials</h3></div>
       <ul>
-        <li><strong>Master of Data Science</strong><span>University of South Australia · 2021–2023 · University Merit Award</span></li>
-        <li><strong>Professional Year Program in ICT</strong><span>Australian Computer Society · 2025</span></li>
-        <li><strong>BA, Mathematics, Geography &amp; Environmental Studies</strong><span>University of Nairobi · Second Class Honours (Upper)</span></li>
-        <li><strong>Microsoft Power BI Data Analyst (PL-300)</strong><span>In progress</span></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><strong>Master of Data Science</strong><span class="sub">University of South Australia · 2021–2023</span>
+          <div class="chips"><span class="chip">University Merit Award</span><span class="chip">International Merit Scholarship</span></div></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span><div><strong>Professional Year Program in ICT</strong><span class="sub">Australian Computer Society · 2024–2025</span></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><strong>BA, Mathematics, Geography &amp; Environmental Studies</strong><span class="sub">University of Nairobi · 2014–2018</span>
+          <div class="chips"><span class="chip soft">Second Class Honours (Upper)</span></div></div></li>
+        <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div><strong>Microsoft Power BI Data Analyst Professional Certificate</strong><span class="sub">Microsoft</span>
+          <div class="chips"><span class="chip prog">In progress</span></div></div></li>
       </ul>
     </div>
   </div>
@@ -187,24 +202,24 @@
     <p class="lead">Tools and methods I've used in real projects, plus what I'm learning now.</p>
     <div class="skills">
       <div class="skill">
-        <h3>Programming &amp; analysis</h3>
-        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">T-SQL / SSMS</span><span class="tag">R</span><span class="tag">SAS</span><span class="tag">Minitab</span><span class="tag">Statistical analysis</span><span class="tag">Data cleaning</span></div>
+        <h3>Business intelligence</h3>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SSRS</span><span class="tag">Report Builder</span><span class="tag">Tableau</span><span class="tag learn">Microsoft Fabric (learning)</span></div>
       </div>
       <div class="skill">
-        <h3>Data &amp; BI</h3>
-        <div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">SSRS</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Data modelling</span><span class="tag">Advanced Excel</span><span class="tag learn">Microsoft Fabric (learning)</span></div>
+        <h3>Data analysis</h3>
+        <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">R</span><span class="tag">Advanced Excel</span><span class="tag">Statistical analysis</span><span class="tag">SAS</span><span class="tag">Minitab</span></div>
+      </div>
+      <div class="skill">
+        <h3>Data management</h3>
+        <div class="tags"><span class="tag">SQL Server (T-SQL, SSMS)</span><span class="tag">Data modelling</span><span class="tag">Data cleaning</span><span class="tag">Data validation</span></div>
       </div>
       <div class="skill">
         <h3>Business analysis</h3>
-        <div class="tags"><span class="tag">Process mapping</span><span class="tag">Requirements</span><span class="tag">Options analysis</span><span class="tag">Stakeholder reporting</span><span class="tag">Lucidchart</span><span class="tag">Mermaid</span></div>
+        <div class="tags"><span class="tag">Requirements gathering</span><span class="tag">Process mapping</span><span class="tag">Stakeholder engagement</span><span class="tag">Options analysis</span><span class="tag">Lucidchart</span><span class="tag">Mermaid</span><span class="tag">Jira</span><span class="tag">Confluence</span></div>
       </div>
       <div class="skill">
         <h3>Automation &amp; AI</h3>
-        <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Power Automate</span><span class="tag">Copilot Studio</span><span class="tag">Git &amp; GitHub</span></div>
-      </div>
-      <div class="skill">
-        <h3>Ways of working</h3>
-        <div class="tags"><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Documentation</span></div>
+        <div class="tags"><span class="tag">Power Automate</span><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Copilot Studio</span><span class="tag">Git &amp; GitHub</span></div>
       </div>
     </div>
   </div>
@@ -228,12 +243,12 @@
           <p>As a Business Intelligence intern at a school, I worked with student and assessment data to make it more reliable and turn it into reports staff could act on.</p>
           <ul>
             <li>Built a SQL and Python reconciliation framework that found and fixed record inconsistencies, cutting related helpdesk tickets by 40%</li>
-            <li>Built and automated recurring SSRS (SQL Server Reporting Services) reports for student and administration functions, including timetables, home classes and attendance</li>
+            <li>Built and automated recurring reports in SSRS (SQL Server Reporting Services) and Report Builder for student and administration functions, including timetables, home classes and attendance</li>
             <li>Built Power BI dashboards that helped staff spot students who needed support sooner</li>
             <li>Audited records and prepared NAPLAN data for analysis and reporting</li>
             <li>Guided staff to match records on student ID numbers instead of names, preventing data-matching errors</li>
           </ul>
-          <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">SSRS</span><span class="tag">Data quality</span><span class="tag">Automated reporting</span></div>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">SSRS</span><span class="tag">Report Builder</span><span class="tag">Data quality</span><span class="tag">Automated reporting</span></div>
         </div>
       </article>
 
@@ -267,6 +282,7 @@
           <h3>Payment services automation review</h3>
           <p>An end-to-end review of how a payment services team receives, prepares and reconciles files, to find where automation would save the most time.</p>
           <ul>
+            <li>Took part in stakeholder workshops and shadowed frontline staff to understand how the work was really done</li>
             <li>Mapped three separate file intake methods and proposed combining them into one preparation pipeline</li>
             <li>Consolidated twelve improvement opportunities, each assessed for value, risk and what should stay manual</li>
             <li>Wrote a recommendation paper and a two-page decision brief for leadership, plus a one-page summary for frontline staff</li>
@@ -289,9 +305,29 @@
         </div>
       </article>
 
-      <article class="project soon">
+      <article class="project">
         <div class="meta">
           <div class="num">05</div>
+          <div class="type">Data science · University project</div>
+          <div class="where">Master of Data Science, UniSA · 2023</div>
+        </div>
+        <div>
+          <h3>Retail sales forecasting: what drives weekly sales?</h3>
+          <p>Using Walmart's public sales data for 45 stores across three store types, the project asked which factors drive weekly sales and how accurately they can be forecast, to support inventory and staffing decisions.</p>
+          <ul>
+            <li>Explored sales by store type, store, department and season, alongside holidays, temperature, fuel price, CPI and unemployment</li>
+            <li>Found store size was the strongest driver of sales. Large stores saw clear peaks from October to January, and sales dipped when unemployment rose above 10% or temperatures were extreme</li>
+            <li>Compared three approaches for each store type: linear regression (tuned with GridSearchCV), SARIMAX time-series forecasting, and random forest regression</li>
+            <li>Random forest performed best, with R² of at least 0.86 for every store type and up to 0.98. The SARIMAX model explained about 80% of the variation in overall sales</li>
+            <li>Assessed every model with MAE, MSE, R², and residual and QQ plots, and noted where each one was unreliable, such as on outlier weeks</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">SARIMAX</span><span class="tag">Random forest</span><span class="tag">Regression</span><span class="tag">Time-series forecasting</span><span class="tag">Data visualisation</span></div>
+        </div>
+      </article>
+
+      <article class="project soon">
+        <div class="meta">
+          <div class="num">06</div>
           <div class="type">Data analysis</div>
           <div class="where">Power BI</div>
         </div>
@@ -323,7 +359,7 @@
         <div class="when">Jun 2025 – Sep 2025</div>
         <h3>ICT Business Intelligence Intern</h3>
         <div class="org">Concordia College</div>
-        <p>Improved student data quality with a SQL and Python reconciliation framework (40% fewer related helpdesk tickets), automated SSRS reports for timetables, home classes and attendance, and built Power BI dashboards.</p>
+        <p>Improved student data quality with a SQL and Python reconciliation framework (40% fewer related helpdesk tickets), automated SSRS and Report Builder reports for timetables, home classes and attendance, and built Power BI dashboards.</p>
       </div>
       <div class="item">
         <div class="when">Jun 2024 – Oct 2025</div>
