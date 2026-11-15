@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jacinta Kimani — Data & Business Analyst</title>
+<meta name="description" content="Jacinta Kimani — Data and Business Analyst in Adelaide. Power BI, process mapping and automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14213d; --navy-2:#1d2d50; --gold:#c9a24b; --gold-soft:#f3ead3;
+    --ink:#1b1f2a; --muted:#5b6475; --line:#e4e1d8; --paper:#faf8f3; --white:#ffffff;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.2;color:var(--navy)}
+  h2{font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:8px}
+  .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+  .lead{color:var(--muted);max-width:640px;margin-bottom:32px}
+  section{padding:80px 0;border-top:1px solid var(--line)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(250,248,243,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .mono{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:1.25rem;width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;text-decoration:none}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav ul a{text-decoration:none;font-size:.92rem;color:var(--muted);font-weight:500}
+  nav ul a:hover{color:var(--navy)}
+
+  /* hero */
+  .hero{background:var(--navy);color:var(--white);padding:96px 0 88px;border:0;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(201,162,75,.25)}
+  .hero::before{content:"";position:absolute;right:-40px;top:-40px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(201,162,75,.18)}
+  .hero h1{color:var(--white);font-size:clamp(2.3rem,6vw,3.8rem);margin-bottom:10px}
+  .hero .role{font-family:Fraunces,serif;font-style:italic;color:var(--gold);font-size:clamp(1.15rem,2.4vw,1.45rem);margin-bottom:22px}
+  .hero p.intro{max-width:620px;color:#d6dbe6;font-size:.98rem;margin-bottom:14px}
+  .hero p.intro + .btns{margin-top:24px}
+  .btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.35);color:var(--white)}
+  .hero-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;position:relative;z-index:1}
+  .portrait{width:240px;height:240px;border-radius:50%;border:3px solid var(--gold);background:var(--navy-2);position:relative;overflow:hidden;display:grid;place-items:center;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .portrait span{font-family:Fraunces,serif;font-style:italic;font-size:5.5rem;color:var(--gold);font-weight:500}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:52px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+  .stat b{display:block;font-family:Fraunces,serif;font-size:1.6rem;color:var(--gold);font-weight:500}
+  .stat span{font-size:.85rem;color:#aeb7c9}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+  .about-grid p{margin-bottom:14px;color:#333a48}
+  .edu{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .edu h3{font-size:1.05rem;margin-bottom:16px}
+  .edu li{list-style:none;padding:10px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+  .edu li:last-child{border:0}
+  .edu li strong{display:block;color:var(--navy)}
+  .edu li span{color:var(--muted);font-size:.85rem}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .skill{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .skill h3{font-size:1.02rem;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{font-size:.8rem;padding:5px 11px;border-radius:999px;background:var(--gold-soft);color:#6b5520;font-weight:500}
+  .tag.learn{background:#e8ecf5;color:var(--navy-2)}
+
+  /* projects */
+  .projects{display:grid;gap:22px}
+  .project{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:grid;grid-template-columns:200px 1fr;gap:30px}
+  .project .meta{border-right:1px solid var(--line);padding-right:24px}
+  .project .num{font-family:Fraunces,serif;font-size:2.2rem;color:var(--gold);line-height:1}
+  .project .type{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:10px}
+  .project .where{font-size:.88rem;color:var(--navy);font-weight:600;margin-top:4px}
+  .project h3{font-size:1.3rem;margin-bottom:10px}
+  .project p{color:#3a4152;margin-bottom:14px}
+  .project ul{margin:0 0 16px 18px;color:#3a4152}
+  .project li{margin-bottom:6px}
+  .project.soon{border-style:dashed;background:transparent}
+  .badge{display:inline-block;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--navy);color:var(--gold);margin-bottom:10px;letter-spacing:.04em}
+
+  /* experience */
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .item{position:relative;padding-bottom:34px}
+  .item::before{content:"";position:absolute;left:-28px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+  .item .when{font-size:.82rem;color:var(--muted);font-weight:500}
+  .item h3{font-size:1.12rem;margin:2px 0}
+  .item .org{color:var(--navy-2);font-weight:600;font-size:.93rem;margin-bottom:8px}
+  .item p{color:#3a4152;font-size:.95rem;max-width:700px}
+
+  /* contact */
+  .contact{background:var(--navy);color:var(--white);border:0;text-align:center}
+  .contact h2{color:var(--white)}
+  .contact p{color:#c9d0de;max-width:540px;margin:0 auto 28px}
+  .contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .contact small{display:block;margin-top:22px;color:#8f9ab0;font-size:.85rem}
+  footer{text-align:center;padding:24px;font-size:.8rem;color:var(--muted)}
+
+  @media (max-width:760px){
+    nav ul{display:none}
+    .about-grid{grid-template-columns:1fr}
+    .project{grid-template-columns:1fr;gap:14px}
+    .project .meta{border-right:0;border-bottom:1px solid var(--line);padding:0 0 14px}
+    section{padding:60px 0}
+    .stats{gap:24px}
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .portrait{width:150px;height:150px;order:-1}
+    .portrait span{font-size:3.4rem}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="mono" aria-label="Home">JK</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+   <div>
+    <p class="eyebrow">Adelaide, South Australia</p>
+    <h1>Jacinta Kimani</h1>
+    <p class="role">Data &amp; Business Analyst</p>
+    <p class="intro">Hi, I'm Jacinta, an early-career data and business analyst who enjoys helping teams make better decisions. I analyse data to find out what's really going on, build clear reports and dashboards in Power BI and Excel, and work with people to understand their processes and needs. Where it helps, I automate the repetitive steps too.</p>
+    <p class="intro">I bring a Master of Data Science, a background in mathematics and hands-on industry experience, along with a practical, people-first approach to every project.</p>
+    <div class="btns">
+      <a href="#projects" class="btn btn-gold">View my projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>Master's</b><span>Data Science, UniSA</span></div>
+      <div class="stat"><b>40%</b><span>Fewer data helpdesk tickets (Concordia)</span></div>
+      <div class="stat"><b>4+ yrs</b><span>Continuous paid work in Australia</span></div>
+    </div>
+   </div>
+    <!-- PHOTO SLOT: upload your photo to GitHub as photo.jpg and it appears here automatically.
+         Until then, the JK monogram shows. -->
+    <div class="portrait">
+      <span>JK</span>
+      <img src="photo.jpg" alt="Jacinta Kimani" onerror="this.remove()">
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About me</p>
+      <h2>Analysis that starts with how people actually work</h2>
+      <p>I'm a data and business analyst with a Master of Data Science from the University of South Australia and an undergraduate degree in Mathematics. I enjoy the whole path from understanding a process, to finding where time and effort are lost, to building the report or automation that fixes it.</p>
+      <p>In my most recent role at a fintech consultancy, I mapped a payment services workflow end to end, identified automation opportunities, and built a working proof of concept that downloads files and produces plain-English run reports for non-technical users.</p>
+      <p>Alongside my analytics work, I've spent four years as a support worker in the disability sector. That work has made me a careful listener and taught me to design for the people who will actually use a system.</p>
+    </div>
+    <div class="edu">
+      <h3>Education &amp; credentials</h3>
+      <ul>
+        <li><strong>Master of Data Science</strong><span>University of South Australia · 2021–2023 · University Merit Award</span></li>
+        <li><strong>Professional Year Program in ICT</strong><span>Australian Computer Society · 2025</span></li>
+        <li><strong>BA, Mathematics, Geography &amp; Environmental Studies</strong><span>University of Nairobi · Second Class Honours (Upper)</span></li>
+        <li><strong>Microsoft Power BI Data Analyst (PL-300)</strong><span>In progress</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="eyebrow">Skills</p>
+    <h2>What I work with</h2>
+    <p class="lead">Tools and methods I've used in real projects, plus what I'm learning now.</p>
+    <div class="skills">
+      <div class="skill">
+        <h3>Programming &amp; analysis</h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">T-SQL / SSMS</span><span class="tag">R</span><span class="tag">SAS</span><span class="tag">Minitab</span><span class="tag">Statistical analysis</span><span class="tag">Data cleaning</span></div>
+      </div>
+      <div class="skill">
+        <h3>Data &amp; BI</h3>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">SSRS</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">Data modelling</span><span class="tag">Advanced Excel</span><span class="tag learn">Microsoft Fabric (learning)</span></div>
+      </div>
+      <div class="skill">
+        <h3>Business analysis</h3>
+        <div class="tags"><span class="tag">Process mapping</span><span class="tag">Requirements</span><span class="tag">Options analysis</span><span class="tag">Stakeholder reporting</span><span class="tag">Lucidchart</span><span class="tag">Mermaid</span></div>
+      </div>
+      <div class="skill">
+        <h3>Automation &amp; AI</h3>
+        <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">Power Automate</span><span class="tag">Copilot Studio</span><span class="tag">Git &amp; GitHub</span></div>
+      </div>
+      <div class="skill">
+        <h3>Ways of working</h3>
+        <div class="tags"><span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Documentation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h2>Selected work</h2>
+    <p class="lead">Client and company details are kept general to respect confidentiality.</p>
+    <div class="projects">
+
+      <article class="project">
+        <div class="meta">
+          <div class="num">01</div>
+          <div class="type">Data analytics &amp; BI</div>
+          <div class="where">Concordia College · Jun–Sep 2025</div>
+        </div>
+        <div>
+          <h3>Student data quality, dashboards and automated reporting</h3>
+          <p>As a Business Intelligence intern at a school, I worked with student and assessment data to make it more reliable and turn it into reports staff could act on.</p>
+          <ul>
+            <li>Built a SQL and Python reconciliation framework that found and fixed record inconsistencies, cutting related helpdesk tickets by 40%</li>
+            <li>Built and automated recurring SSRS (SQL Server Reporting Services) reports for student and administration functions, including timetables, home classes and attendance</li>
+            <li>Built Power BI dashboards that helped staff spot students who needed support sooner</li>
+            <li>Audited records and prepared NAPLAN data for analysis and reporting</li>
+            <li>Guided staff to match records on student ID numbers instead of names, preventing data-matching errors</li>
+          </ul>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">SSRS</span><span class="tag">Data quality</span><span class="tag">Automated reporting</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta">
+          <div class="num">02</div>
+          <div class="type">Automation · Proof of concept</div>
+          <div class="where">Playwright + TypeScript</div>
+        </div>
+        <div>
+          <h3>Browser automation with plain-English run reports</h3>
+          <p>A manual routine (log in to a portal, find files, download them, record what happened) took staff time every week. I built a proof of concept that does the whole routine automatically, demonstrated safely against my own GitHub repository.</p>
+          <ul>
+            <li>Logs in once with multi-factor authentication, saves the session, and reuses it so later runs skip the login</li>
+            <li>Downloads and extracts files to a set folder on the computer</li>
+            <li>Generates a self-contained HTML report in plain English, with guidance if a step fails</li>
+            <li>Runs with one click from a desktop shortcut, so non-technical staff can use it</li>
+            <li>Masks credentials in reports and traces for security</li>
+          </ul>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">MFA handling</span><span class="tag">Custom reporting</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta">
+          <div class="num">03</div>
+          <div class="type">Business analysis</div>
+          <div class="where">Fintech consultancy · 12 weeks</div>
+        </div>
+        <div>
+          <h3>Payment services automation review</h3>
+          <p>An end-to-end review of how a payment services team receives, prepares and reconciles files, to find where automation would save the most time.</p>
+          <ul>
+            <li>Mapped three separate file intake methods and proposed combining them into one preparation pipeline</li>
+            <li>Consolidated twelve improvement opportunities, each assessed for value, risk and what should stay manual</li>
+            <li>Wrote a recommendation paper and a two-page decision brief for leadership, plus a one-page summary for frontline staff</li>
+            <li>Documented options, priorities and a delivery roadmap in Confluence</li>
+          </ul>
+          <div class="tags"><span class="tag">Process mapping</span><span class="tag">Options analysis</span><span class="tag">Confluence</span><span class="tag">Power Automate</span></div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta">
+          <div class="num">04</div>
+          <div class="type">AI · Prototype</div>
+          <div class="where">Microsoft Copilot Studio</div>
+        </div>
+        <div>
+          <h3>AI agents for knowledge capture and self-service</h3>
+          <p>Prototyped AI agents that turn client and sales meeting transcripts into knowledge notes, FAQs and step-by-step platform guides. I also built a chatbot that answers staff and client questions from website content, system documentation and meeting records.</p>
+          <div class="tags"><span class="tag">Copilot Studio</span><span class="tag">Knowledge management</span><span class="tag">Prompt design</span></div>
+        </div>
+      </article>
+
+      <article class="project soon">
+        <div class="meta">
+          <div class="num">05</div>
+          <div class="type">Data analysis</div>
+          <div class="where">Power BI</div>
+        </div>
+        <div>
+          <span class="badge">IN PROGRESS</span>
+          <h3>Power BI dashboard on South Australian public data</h3>
+          <p>A dashboard built on open government data. It sets out the business question, the data cleaning in Power Query, the DAX measures, and the insights a decision-maker would act on. A short video walkthrough is coming soon.</p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="eyebrow">Experience</p>
+    <h2>Where I've worked and studied</h2>
+    <p class="lead">A steady path of study, industry internships and continuous paid work.</p>
+    <div class="timeline">
+      <div class="item">
+        <div class="when">Jun 2026 – Sep 2026</div>
+        <h3>ICT Intern: Business Analysis &amp; Automation</h3>
+        <div class="org">Opex Consulting</div>
+        <p>Led a 12-week payment services automation review, built a Playwright proof of concept, and prototyped Copilot Studio AI agents.</p>
+      </div>
+      <div class="item">
+        <div class="when">Jun 2025 – Sep 2025</div>
+        <h3>ICT Business Intelligence Intern</h3>
+        <div class="org">Concordia College</div>
+        <p>Improved student data quality with a SQL and Python reconciliation framework (40% fewer related helpdesk tickets), automated SSRS reports for timetables, home classes and attendance, and built Power BI dashboards.</p>
+      </div>
+      <div class="item">
+        <div class="when">Jun 2024 – Oct 2025</div>
+        <h3>Professional Year Program in ICT</h3>
+        <div class="org">Australian Computer Society · Performance Education, Adelaide</div>
+        <p>Australian workplace training in ICT professional practice, communication and project delivery.</p>
+      </div>
+      <div class="item">
+        <div class="when">Oct 2022 – Present</div>
+        <h3>Person-Centred Support Worker</h3>
+        <div class="org">Community Living Options</div>
+        <p>One-to-one support tailored to each person's needs. This work has strengthened my communication, accurate record-keeping and judgement under pressure.</p>
+      </div>
+      <div class="item">
+        <div class="when">Jul 2021 – Dec 2023</div>
+        <h3>Master of Data Science</h3>
+        <div class="org">University of South Australia</div>
+        <p>Recipient of a University Merit Award and an International Merit Scholarship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's talk</h2>
+    <p>I'm looking for Data Analyst, BI and Business Analyst roles in Adelaide and beyond. I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a class="btn btn-gold" href="mailto:jkimani698@gmail.com">jkimani698@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/jacinta-kimani254" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <small>Adelaide, South Australia</small>
+  </div>
+</section>
+
+<footer>© 2026 Jacinta Kimani</footer>
+
+</body>
+</html>
