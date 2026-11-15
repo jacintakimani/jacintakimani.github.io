@@ -157,9 +157,9 @@
       <a href="#contact" class="btn btn-ghost">Get in touch</a>
     </div>
     <div class="stats">
-      <div class="stat"><b>Master</b><span>of Data Science, UniSA</span></div>
+      <div class="stat"><b>Master of Data Science</b><span>University of South Australia</span></div>
       <div class="stat"><b>40%</b><span>Fewer data helpdesk tickets (Concordia)</span></div>
-      <div class="stat"><b>4+ years</b><span>Work experience in Australia</span></div>
+      <div class="stat"><b>4+ years</b><span>Australian work experience</span></div>
     </div>
    </div>
     <!-- PHOTO SLOT: upload your photo to GitHub as photo.jpg and it appears here automatically.
@@ -260,15 +260,21 @@
         </div>
         <div>
           <h3>Browser automation with plain-English run reports</h3>
-          <p>A manual routine (log in to a portal, find files, download them, record what happened) took staff time every week. I built a proof of concept that does the whole routine automatically, demonstrated safely against my own GitHub repository.</p>
+          <p>A manual routine (log in to a portal, find files, download them, record what happened) took staff time every week. I built a proof of concept that does the whole routine automatically. I tested it on my own GitHub repository because GitHub uses the same login pattern as the real portals (username, password and authenticator-app MFA), and those portals had no APIs to use instead.</p>
+          <p>I built three versions, each suited to a different level of risk:</p>
           <ul>
-            <li>Logs in once with multi-factor authentication, saves the session, and reuses it so later runs skip the login</li>
-            <li>Downloads and extracts files to a set folder on the computer</li>
-            <li>Generates a self-contained HTML report in plain English, with guidance if a step fails</li>
-            <li>Runs with one click from a desktop shortcut, so non-technical staff can use it</li>
-            <li>Masks credentials in reports and traces for security</li>
+            <li><strong>Attended:</strong> a person logs in and approves MFA, then the automation takes over and reuses the saved session</li>
+            <li><strong>Fully automated:</strong> on a test account, the MFA code is generated automatically from a secret held in AWS Secrets Manager, never in the code</li>
+            <li><strong>Supplier portal:</strong> built for a real, lower-risk portal but deliberately not run live, because there was no safe test environment</li>
           </ul>
-          <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">MFA handling</span><span class="tag">Custom reporting</span></div>
+          <p>Each version was built to:</p>
+          <ul>
+            <li>Download and extract files to a set folder on the computer</li>
+            <li>Generate a self-contained HTML report in plain English, with guidance if a step fails</li>
+            <li>Run with one click from a desktop shortcut, so non-technical staff can use it</li>
+            <li>Mask credentials in reports and traces for security</li>
+          </ul>
+          <div class="tags"><span class="tag">Playwright</span><span class="tag">TypeScript</span><span class="tag">MFA handling</span><span class="tag">AWS Secrets Manager</span><span class="tag">Custom reporting</span></div>
         </div>
       </article>
 
